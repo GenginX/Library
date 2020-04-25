@@ -1,5 +1,6 @@
 import model.Book;
 import model.Library;
+import model.LibraryException;
 
 import java.util.Scanner;
 
@@ -30,10 +31,26 @@ public class Main {
                     library.printAllBooks();
                     break;
                 case 2:
-                    System.out.println("[" + add + "] jeszcze nie zaimplementowana/e");
+                    System.out.println("Podaj autora ksiazki: ");
+                    s.nextLine();
+                    String author = s.nextLine();
+                    System.out.println("Podaj tytul ksiazki: ");
+                    String title = s.nextLine();
+                    s.nextLine();
+                    System.out.println("Podaj isbn ksiazki: ");
+                    String isbn = s.nextLine();
+                    Book newBook = new Book(author,title,isbn);
+                    library.addBooks(newBook);
                     break;
                 case 3:
-                    System.out.println("[" + remove + "] jeszcze nie zaimplementowana/e");
+                    System.out.println("Podaj numer ID ksiazki ktora chcesz usunac: ");
+                    Long removeBookId = s.nextLong();
+                    try {
+                        library.removeBook(removeBookId);
+                        System.out.println("Ksiazka usunieta");
+                    } catch (LibraryException e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 default:
                     System.out.println("Zly wybor");
