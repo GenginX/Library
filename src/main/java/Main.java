@@ -1,9 +1,14 @@
+import model.Book;
+import model.Library;
+
 import java.util.Scanner;
 
 public class Main {
     private static Scanner s;
 
     public static void main(String[] args) {
+
+        Library library = createLibraryWithBooks();
 
         System.out.println("Witaj w bibliotece! Co moge dla Ciebie zrobic?");
 
@@ -72,6 +77,16 @@ public class Main {
 //        }
 //    }
 
+    }
+
+    private static Library createLibraryWithBooks() {
+        return new Library(new Book[]{
+                new Book("Juliusz Słowacki", "Balladyna", "9788373272170"),
+                new Book("Jan Brzechwa", "Akademia pana Kleska", "9788371530326"),
+                new Book("Arkady Fiedler", "Dywizjon 303", "9788381271738"),
+                new Book("Henryk Sienkiewicz", "Latarnik", "9788387139803"),
+                new Book("Juliusz Słowacki", "Kordian", "9788389524027")
+        });
     }
 
 }
