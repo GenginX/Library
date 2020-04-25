@@ -27,7 +27,7 @@ public class Main {
             int choice = s.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.println("[" + view + "] jeszcze nie zaimplementowana/e");
+                    library.printAllBooks();
                     break;
                 case 2:
                     System.out.println("[" + add + "] jeszcze nie zaimplementowana/e");
@@ -40,7 +40,6 @@ public class Main {
                     break;
             }
 
-            System.out.println();
         }
 
 //    public static void inteface(){

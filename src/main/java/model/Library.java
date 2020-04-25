@@ -9,4 +9,14 @@ public class Library {
     }
 
 
+    public void printAllBooks() {
+
+        for (Book book : books
+        ) {
+            System.out.println(book);
+
+        }
+
+    }
+
 }
