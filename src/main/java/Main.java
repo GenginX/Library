@@ -1,4 +1,5 @@
 import model.Book;
+import model.ISBNException;
 import model.Library;
 import model.LibraryException;
 
@@ -7,7 +8,7 @@ import java.util.Scanner;
 public class Main {
     private static Scanner s;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ISBNException {
 
         Library library = createLibraryWithBooks();
 
@@ -39,7 +40,12 @@ public class Main {
                     s.nextLine();
                     System.out.println("Podaj isbn ksiazki: ");
                     String isbn = s.nextLine();
-                    Book newBook = new Book(author,title,isbn);
+                    Book newBook = null;
+                    try {
+                        newBook = new Book(author,title,isbn);
+                    } catch (ISBNException e) {
+                        System.out.println(e.getMessage());;
+                    }
                     library.addBooks(newBook);
                     break;
                 case 3:
@@ -95,15 +101,18 @@ public class Main {
 
     }
 
-    private static Library createLibraryWithBooks() {
-        return new Library(new Book[]{
-                new Book("Juliusz Słowacki", "Balladyna", "9788373272170"),
-                new Book("Jan Brzechwa", "Akademia pana Kleska", "9788371530326"),
-                new Book("Arkady Fiedler", "Dywizjon 303", "9788381271738"),
-                new Book("Henryk Sienkiewicz", "Latarnik", "9788387139803"),
-                new Book("Juliusz Słowacki", "Kordian", "9788389524027")
-        });
+    private static Library createLibraryWithBooks() throws ISBNException {
+            return new Library(new Book[]{
+                    new Book("Juliusz Słowacki", "Balladyna", "9788373272170"),
+                    new Book("Jan Brzechwa", "Akademia pana Kleska", "9788371530326"),
+                    new Book("Arkady Fiedler", "Dywizjon 303", "9788381271738"),
+                    new Book("Henryk Sienkiewicz", "Latarnik", "9788387139803"),
+                    new Book("Juliusz Słowacki", "Kordian", "9788389524027")
+            });
+
     }
+
+
 
 }
 
