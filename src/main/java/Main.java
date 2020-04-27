@@ -37,7 +37,6 @@ public class Main {
                     String author = s.nextLine();
                     System.out.println("Podaj tytul ksiazki: ");
                     String title = s.nextLine();
-                    s.nextLine();
                     System.out.println("Podaj isbn ksiazki: ");
                     String isbn = s.nextLine();
                     Book newBook = null;

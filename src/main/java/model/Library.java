@@ -48,7 +48,7 @@ public class Library {
     public void addBooks(Book book){
 
         for (int i = 0; i <books.length ; i++) {
-            if(book.getIsbn().equals(book.getIsbn())){
+            if(book.getIsbn().equals(books[i].getIsbn())){
                 System.out.println("Nie mozna dodac takiej ksiazki do biblioteki");
                 return;
             }
